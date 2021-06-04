@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 03-Jun-2021 às 20:41
+-- Tempo de geração: 04-Jun-2021 às 20:03
 -- Versão do servidor: 8.0.25-0ubuntu0.20.04.1
 -- versão do PHP: 7.4.3
 
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cor` (
   `id` int NOT NULL,
-  `cor` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `cor` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `cor`
@@ -57,8 +57,8 @@ INSERT INTO `cor` (`id`, `cor`) VALUES
 
 CREATE TABLE `marca` (
   `id` int NOT NULL,
-  `marca` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `marca` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `marca`
@@ -93,10 +93,10 @@ INSERT INTO `marca` (`id`, `marca`) VALUES
 
 CREATE TABLE `usuario` (
   `id` int NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `login` varchar(20) NOT NULL,
-  `senha` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `login` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `senha` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -113,17 +113,17 @@ INSERT INTO `usuario` (`id`, `nome`, `login`, `senha`) VALUES
 
 CREATE TABLE `veiculo` (
   `id` int NOT NULL,
-  `modelo` varchar(50) NOT NULL,
+  `modelo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `anomodelo` year NOT NULL,
   `anofabricacao` year NOT NULL,
   `valor` double NOT NULL,
-  `tipo` enum('cupe','crossover','esportivo','hatch','jipe','picape','sedan','suv','van') NOT NULL,
-  `fotoDestaque` varchar(50) NOT NULL,
+  `tipo` enum('cupe','crossover','esportivo','hatch','jipe','picape','sedan','suv','van') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `fotoDestaque` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `marca_id` int NOT NULL,
   `cor_id` int NOT NULL,
   `usuario_id` int NOT NULL,
-  `opcionais` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `opcionais` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `veiculo`

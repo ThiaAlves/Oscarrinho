@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="header">
+	<meta charset="utf-8">
+</head>
+<body>
+	<div class="container">
+		<h1>Currículo Acadêmico</h1>
+		<div class="form-group" th:each="curriculo : ${curriculos}">
+		
+			<label>Nome:</label>
+			<samp th:text="${curriculo.nome}"></samp>
+			<br /> <label>RA:</label>
+			<samp th:text="${curriculo.ra}"></samp>
+			<br /> <label>Curso:</label>
+			<samp th:text="${curriculo.curso}"></samp>
+			<br /> <label>Empresa:</label>
+			<samp th:text="${curriculo.empresa}"></samp>
+			<br /> <label>Função:</label>
+			<samp th:text="${curriculo.funcao}"></samp>
+			<br /> <label>Tempo:</label>
+			<samp th:text="${curriculo.tempoMeses}"></samp>
+			<br /> <label>Projeto:</label>
+			<samp th:text="${curriculo.projeto}"></samp>
+			<br />
+		</div>
+		<div class="form-group">
+			<a href="/"><h1>voltar</h1></a>
+		</div>
+		<div th:include="footer :: copy"></div>
+	</div>	
+</body>
+</html>
