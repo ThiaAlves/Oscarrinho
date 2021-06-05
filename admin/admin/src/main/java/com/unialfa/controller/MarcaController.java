@@ -10,45 +10,47 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.unialfa.model.Marca;
 import com.unialfa.model.Usuario;
+import com.unialfa.repository.MarcaRepository;
 import com.unialfa.repository.UsuarioRepository;
 
 @Controller
-@RequestMapping("/usuario")
-public class UsuarioController {
+@RequestMapping("/marca")
+public class MarcaController {
 
 	@Autowired
-	UsuarioRepository repo;
+	MarcaRepository repo;
 	
 	@GetMapping("/formulario")
-	public String abrirFormulario(Usuario usuario, Model model){
-		return "usuario/formulario";
+	public String abrirFormulario(Marca marca, Model model){
+		return "marca/formulario";
 	}
 	
 	@PostMapping("salvar")
-	public String salvar(Usuario usuario) {
-		repo.save(usuario);
+	public String salvar(Marca marca) {
+		repo.save(marca);
 		return "redirect:lista";
 	}
 
 	@PostMapping("editar/salvar")
-	public String atualizar(Usuario usuario) {
-		repo.save(usuario);
+	public String atualizar(Marca marca) {
+		repo.save(marca);
 		return "redirect:../lista";
 	}
 	
 	@RequestMapping("lista")
 	public String abrirLista(Model model) {
-		model.addAttribute("usuarios",repo.findAll());
-		return "usuario/lista";
+		model.addAttribute("marcas",repo.findAll());
+		return "marca/lista";
 	}
 	
 	@GetMapping(value = "editar")
 	public String editar(@PathParam(value = "id") Long id, Model model) {
-		Usuario u = repo.getOne(id);
-		model.addAttribute("usuario", u);
+		Marca m = repo.getOne(id);
+		model.addAttribute("marca", m);
 		
-		return "usuario/formulario";
+		return "marca/formulario";
 	}
 	
 	@GetMapping(value = "excluir")

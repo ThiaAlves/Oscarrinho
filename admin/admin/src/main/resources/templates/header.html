@@ -5,29 +5,30 @@
 <title>Oscarrinho</title>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/lightbox-plus-jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="vendor/summernote/summernote.min.js"></script>
-    <script type="text/javascript" src="vendor/summernote/summernote-bs4.min.js"></script>
-    <script src="vendor/summernote/lang/summernote-pt-BR.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/js/lightbox-plus-jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/vendor/summernote/summernote.min.js"></script>
+    <script type="text/javascript" src="/vendor/summernote/summernote-bs4.min.js"></script>
+    <script src="/vendor/summernote/lang/summernote-pt-BR.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="/js/sb-admin-2.min.js"></script>
     <!-- Outros Javascript -->
-    <script src="js/parsley.min.js"></script>
-    <script src="js/jquery.inputmask.min.js"></script>
-    <script src="js/bindings/inputmask.binding.js"></script>
-    <script src="js/jquery.maskMoney.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="js/sweetalert2.js"></script>
+    <script src="/js/parsley.min.js"></script>
+    <script src="/js/jquery.inputmask.min.js"></script>
+    <script src="/js/bindings/inputmask.binding.js"></script>
+    <script src="/js/jquery.maskMoney.min.js"></script>
+    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="/js/sweetalert2.js"></script>
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Styles-->
+        <!-- Styles-->
     <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/lightbox.min.css}">
@@ -44,9 +45,9 @@
         <ul class="navbar-nav bg-gradient-home sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 	
-                <img src="images/logo.png" alt="OsCarrinho">
+                <img src="/img/logomarca.png" alt="OsCarrinho" style="width:70%">
 
             </a>
 
@@ -55,7 +56,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -73,10 +74,10 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="cadastros/categorias"><i class="fas fa-tags"></i> Marcas</a>
+                        <a class="collapse-item" href="marca/formulario"><i class="fas fa-copyright"></i> Marcas</a>
                         <a class="collapse-item" href="cadastros/produtos"><i class="fas fa-palette"></i> Cores</a>
                         <a class="collapse-item" href="cadastros/cidades"><i class="fas fa-car"></i> Veículos</a>
-                        <a class="collapse-item" href="cadastros/usuarios"><i class="fas fa-user"></i> Usuário</a>
+                        <a class="collapse-item" href="usuario/formulario"><i class="fas fa-user"></i> Usuário</a>
                     </div>
                 </div>
             </li>
@@ -85,13 +86,16 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-shopping-cart"></i>
-                    <span>Processos</span>
+                    <i class="fas fa-fw fa-th-list"></i>
+                    <span>Listagem</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="cadastros/vendas"><i class="fas fa-shopping-cart"></i> Vendas</a>
+                        <a class="collapse-item" href="marca/lista"><i class="fas fa-copyright"></i> Marcas</a>
+                        <a class="collapse-item" href="core/lista"><i class="fas fa-palette"></i> Cores</a>
+                        <a class="collapse-item" href="veiculo/lista"><i class="fas fa-car"></i> Veículos</a>
+                        <a class="collapse-item" href="usuario/lista"><i class="fas fa-user"></i> Usuário</a>
                     </div>
                 </div>
             </li>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="header">
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Cadastro de Marcas</h1>
+
+			<form action="salvar" method="post">
+				<div class=form-group>
+					<br>
+					<div class="row">
+						<div class="col-12 col-sm-12">
+							<label>Marca:</label>
+							<input type="text" class="form-control" id="marca" name="marca" th:value="${marca.marca}"/>
+							<br>
+						</div>
+					</div>
+					<input type="hidden" id="id" name="id" th:value="${marca.id}" th:if="${marca != null}">
+				</div>
+				<div>
+				<div class="float-right">
+					<button type="return" onclick="window.history.back()" class="btn btn-danger">Voltar</button>
+					<button type="submit" class="btn btn-primary">Salvar/Atualizar</button>
+				</div>
+				<br>
+				<br>
+			</form>
+
+		<div th:include="footer :: copy"></div>
+	</div>
+	</body>
+</html>
