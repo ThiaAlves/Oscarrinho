@@ -5,14 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 @Entity
-public class Marca {
+public class Cor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String marca;
-	
+	private String cor;
+
 	public Long getId() {
 		return id;
 	}
@@ -21,18 +22,18 @@ public class Marca {
 		this.id = id;
 	}
 
-	public String getMarca() {
-		return marca;
+	public String getCor() {
+		return cor;
 	}
 	
-	public void setMarca(String marca) {
-		this.marca = marca;
+	public void setCor(String cor) {
+		this.cor = cor;
 	}
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return id + " " + marca;
+		return id + " " + cor;
 	}
 	
 

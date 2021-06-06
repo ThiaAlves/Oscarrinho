@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="header">
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Cadastro de Cores</h1>
+
+			<form action="salvar" method="post">
+				<div class=form-group>
+					<br>
+					<div class="row">
+						<div class="col-12 col-sm-12">
+							<label>Cor:</label>
+							<input type="text" class="form-control" id="cor" name="cor" th:value="${cor.cor}"/>
+							<br>
+						</div>
+					</div>
+					<input type="hidden" id="id" name="id" th:value="${cor.id}" th:if="${cor != null}">
+				</div>
+				<div class="float-right">
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+				<br>
+				<br>
+			</form>
+
+		<div th:include="footer :: copy"></div>
+	</div>
+	</body>
+</html>

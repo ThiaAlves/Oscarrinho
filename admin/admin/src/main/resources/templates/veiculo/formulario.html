@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="header">
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Cadastro de Veículo</h1>
+
+			<form action="salvar" method="post">
+				<div class=form-group>
+					<br>
+					<div class="row">
+						<div class="col-6 col-sm-6">
+							<label>Modelo:</label>
+							<input type="text" class="form-control" id="modelo" name="modelo" th:value="${veiculo.modelo}"/>
+							<br>
+						</div>
+						<div class="col-3 col-sm-3">
+							<label>Ano Modelo:</label>
+							<input type="text" class="form-control" id="anomodelo" name="anomodelo" th:value="${veiculo.anomodelo}"/>
+							<br>
+						</div>
+						<div class="col-3 col-sm-3">
+							<label>Ano Fabricação:</label>
+							<input type="text" class="form-control" id="anofabricacao" name="anofabricacao" th:value="${veiculo.anofabricacao}"/>
+							<br>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4 col-sm-4">
+							<label>Valor:</label>
+							<input type="text" class="form-control" id="valor" name="valor" th:value="${veiculo.valor}"/>
+							<br>
+						</div>
+						<div class="col-4 col-sm-4">	
+							<label>Tipo:</label>
+							<input type="text" class="form-control" id="tipo" name="tipo" th:value="${veiculo.tipo}"/>
+							<br>
+						</div>
+						<div class="col-4 col-sm-4">	
+							<label>Foto Destaque:</label>
+							<input type="text" class="form-control" id="fotodestaque" name="fotodestaque" th:value="${veiculo.fotodestaque}"/>
+							<br>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4 col-sm-4">
+							<label>Marca:</label>
+							<select name="marca_id" id="marca_id" class="form-control" th:field="{marcas}">
+  								<option value="">Selecione a Marca:</option>
+   								<option th:each="m : ${marcas}" th:value="${m.id}" th:text="#{|m.${m.marca}|}"></option>
+							</select>
+							<br>
+						</div>
+						<div class="col-4 col-sm-4">	
+							<label>Cor:</label>
+							<input type="text" class="form-control" id="cor_id" name="cor_id" th:value="${veiculo.cor_id}"/>
+							<br>
+						</div>
+						<div class="col-4 col-sm-4">	
+							<label>Usuário:</label>
+							<input type="text" class="form-control" id="usuario_id" name="usuario_id" th:value="${veiculo.usuario_id}"/>
+							<br>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12 col-sm-12">
+							<label>Opcionais:</label>
+							<input type="text" class="form-control" id="opcionais" name="opcionais" th:value="${veiculo.opcionais}"/>
+							<br>
+						</div>
+					</div>		
+					<input type="hidden" id="id" name="id" th:value="${veiculo.id}" th:if="${veiculo != null}">
+				</div>
+				<div class="float-right">
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+				<br>
+				<br>
+			</form>
+
+		<div th:include="footer :: copy"></div>
+	</div>
+	</body>
+</html>

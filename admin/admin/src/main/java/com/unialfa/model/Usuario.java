@@ -1,14 +1,10 @@
 package com.unialfa.model;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Usuario {

@@ -10,45 +10,45 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.unialfa.model.Marca;
-import com.unialfa.repository.MarcaRepository;
+import com.unialfa.model.Cor;
+import com.unialfa.repository.CorRepository;
 
 @Controller
-@RequestMapping("/marca")
-public class MarcaController {
+@RequestMapping("/cor")
+public class CorController {
 
 	@Autowired
-	MarcaRepository repo;
+	CorRepository repo;
 	
 	@GetMapping("/formulario")
-	public String abrirFormulario(Marca marca, Model model){
-		return "marca/formulario";
+	public String abrirFormulario(Cor cor, Model model){
+		return "cor/formulario";
 	}
 	
 	@PostMapping("salvar")
-	public String salvar(Marca marca) {
-		repo.save(marca);
+	public String salvar(Cor cor) {
+		repo.save(cor);
 		return "redirect:lista";
 	}
 
 	@PostMapping("editar/salvar")
-	public String atualizar(Marca marca) {
-		repo.save(marca);
+	public String atualizar(Cor cor) {
+		repo.save(cor);
 		return "redirect:../lista";
 	}
 	
 	@RequestMapping("lista")
 	public String abrirLista(Model model) {
-		model.addAttribute("marcas",repo.findAll());
-		return "marca/lista";
+		model.addAttribute("cores",repo.findAll());
+		return "cor/lista";
 	}
 	
 	@GetMapping(value = "editar")
 	public String editar(@PathParam(value = "id") Long id, Model model) {
-		Marca m = repo.getOne(id);
-		model.addAttribute("marca", m);
+		Cor c = repo.getOne(id);
+		model.addAttribute("cor", c);
 		
-		return "marca/formulario";
+		return "cor/formulario";
 	}
 	
 	@GetMapping(value = "excluir")

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="header">
+<meta charset="utf-8">
+</head>
+<body>
+	<div class="container">
+		<h1>Lista de Veículos</h1>
+
+		<table class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+                    <td width="10%">ID</td>
+                    <td width="40%">Modelo</td>
+                    <td width="10%">Ano</td>
+                    <td width="10%">Valor</td>
+                    <td width="10%">Imagem</td>
+                    <td width="10%">Ações</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="v : ${veiculos}">
+					<td th:text="${v.id}"></td>
+					<td th:text="${v.modelo}"></td>
+					<td th:text="${v.anofabricacao}"></td>
+					<td th:text="${'R$'+ #numbers.formatDecimal({v.valor},1, 'DEFAULT', 2, 'DEFAULT')}"></td>
+				<!--<td th:text="${v.fotodestaque}"></td> -->
+					<td><img width="100%" th:src="@{'/img/veiculos/'+${v.fotodestaque}}" data-lightbox="foto" th:title="${v.modelo}"></td>
+					
+					<td><a th:href="@{editar/(id=${v.id})}" class="btn btn-success btn-sm">
+                            <i class="fas fa-edit"></i>
+                         </a>
+                        <a th:href="@{excluir/(id=${v.id})}" class="btn btn-danger btn-sm">
+                           <i class="fas fa-trash"></i>
+                        </a>
+                   </td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div th:include="footer :: copy"></div>
+	</div>
+</body>
+</html>
