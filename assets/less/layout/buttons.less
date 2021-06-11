@@ -1,0 +1,95 @@
+
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+.btn {
+	position: relative;
+	z-index: 2;
+	overflow: hidden;
+}
+
+.btn-primary,
+.btn-secondary {
+	font-size: 14px;
+	line-height: 35px;
+	text-transform: uppercase;
+	text-align: center;
+	border-radius: 2px;
+	padding: 0;
+	width: 170px;
+	height: 37px;
+	text-align: center;
+ font-family:@font-body;
+	text-transform: uppercase;
+}
+
+.btn-primary {
+ background-color:@color-theme;
+ color:@color-white;
+ border: 2px solid @color-theme;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:active:focus {
+	background-color: transparent;
+ color:@color-white;
+ border-color:@color-theme
+}
+
+.btn-secondary {
+	background-color: #222222;
+ color:@color-white;
+	border: none;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+ background-color:@color-theme;
+ color:@color-white;
+}
+
+.btn::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 150%;
+	height: 100%;
+	z-index: -1;
+ background-color:@color-theme;
+	-webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+	transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+	-webkit-transform-origin: 0% 100%;
+	transform-origin: 0% 100%;
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.4s, background-color 0.4s;
+	transition: transform 0.4s, opacity 0.4s, background-color 0.4s;
+}
+
+.btn:hover::before,
+.btn:focus::before,
+.btn:active::before {
+	opacity: 1;
+	-webkit-transform: rotate3d(0, 0, 1, 0deg);
+	transform: rotate3d(0, 0, 1, 0deg);
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.btn-primary:hover::before,
+.btn-primary:focus::before,
+.btn-primary:active::before {
+ background-color: @color-theme;
+}
+
+.btn-block {
+	width: 100%;
+}
+
+.btn-white {
+background-color:@color-white;
+	color: #000;
+border-color:@color-white
+}

@@ -1,0 +1,82 @@
+
+/*------------------------------------*\
+    #Skills
+\*------------------------------------*/
+.progressbar {
+	margin-bottom: 30px;
+}
+
+.progressbar:last-of-type {
+	margin-bottom: 0
+}
+
+.progress {
+	height: 12px;
+	background-color: #d22e2e;
+	border-radius: 2px;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	padding: 4px;
+	width: 100%;
+	margin-bottom: 0;
+	overflow: visible;
+}
+
+.progress-bar {
+	height: 4px;
+ background-color: @color-white;
+	border-radius: 1px;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	position: relative;
+}
+
+.progress-bar:before {
+	position: absolute;
+	width: 1px;
+	height: 18px;
+	background-color: #d22e2e;
+	content: "";
+	top: -12px;
+	right: 0;
+}
+
+.progress-bar:after {
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	background-color: #d22e2e;
+	content: "";
+	top: -17px;
+	right: -2px;
+}
+
+.progress-title {
+	display: block;
+	position: relative;
+	width: 100%;
+	margin-bottom: 18px;
+}
+
+.progress-title .title {
+	color: #373636;
+font-family: @font-secondary;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.progress-title .value {
+	color: #aaaaaa;
+font-family: @font-body;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 1;
+	text-transform: uppercase;
+	position: absolute;
+	margin-left: -13px;
+	margin-top: 8px;
+}

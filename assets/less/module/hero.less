@@ -1,0 +1,130 @@
+/*------------------------------------*\
+    #Hero
+\*------------------------------------*/
+.hero {
+	height: 600px;
+	padding-top: 0;
+	padding-bottom: 0
+}
+
+.hero .slide {
+	height: 600px;
+}
+
+.hero .slide.bg-overlay:before {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.hero .slide-content {
+	text-align: center;
+}
+
+.hero .slide-content .slide-icon {
+	margin-bottom: 50px;
+}
+
+.hero .slide-content .slide-icon i {
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	border-radius: 1px;
+background-color: @color-theme;
+color:@color-white;
+	font-size: 64px;
+	display: inline-block
+}
+
+.hero .slide-content .slide-heading {
+	color: #e2e2e2;
+font-family: @font-secondary;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1;
+	margin-bottom: 28px;
+	text-transform: capitalize;
+}
+
+.hero .slide-content .slide-title h2 {
+	font-size: 55px;
+	font-weight: 800;
+	line-height: 1;
+	text-transform: uppercase;
+color:@color-white;
+	margin-bottom: 30px
+}
+
+.hero .slide-content .slide-desc {
+	color: #e2e2e2;
+font-family: @font-secondary;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 24px;
+	margin-bottom: 40px
+}
+
+.hero .slide-content .slide-action .btn {
+	height: 41px;
+	line-height: 39px;
+	font-weight: 700;
+	border-radius: 2px;
+}
+
+.hero .slide-content .slide-action .btn:first-of-type {
+	margin-right: 25px;
+}
+
+.hero .slick-dots {
+	bottom: 27px;
+}
+
+.hero .slick-dots li button {
+	background-color: rgba(255, 255, 255, 0.8);
+	width: 18px;
+	height: 3px;
+}
+
+.hero .arrows {
+	position: absolute;
+	top: 50%;
+	margin-top: -15px;
+	width: 30px;
+	height: 81px;
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #999999;
+	font-size: 23px;
+	font-weight: 400;
+	line-height: 81px;
+	text-align: center;
+	cursor: pointer;
+	z-index: 99;
+}
+
+.hero .arrows:hover {
+background-color:@color-theme;
+color:@color-white;
+}
+
+.hero .arrows.arrow-next {
+	right: 0
+}
+
+.hero .arrows.arrow-prev {
+	left: 0
+}
+
+.hero-3 .slide {
+	padding-top: 200px;
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+.hero .slide-content .slide-title h2 { font-size:40px;}
+.hero .slide-content .slide-icon { margin-bottom:30px;}
+.hero .slide-content .slide-action .btn:first-of-type { margin-right:0}
+.hero .slide-content .slide-heading { font-size:16px;}
+.hero .slide-content .slide-desc { font-size:13px; margin-bottom:30px;}
+} 
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+}

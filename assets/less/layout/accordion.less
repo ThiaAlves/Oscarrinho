@@ -1,0 +1,81 @@
+
+/*------------------------------------*\
+    #ACCORDION
+\*------------------------------------*/
+.accordion .panel {
+	border:none;
+border-bottom:1px solid #e5e5e5;
+	padding:20px 0;
+	margin-bottom: 0px;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	border-radius:0;
+	background-color:transparent;
+}
+
+.accordion .panel:last-of-type { padding-bottom:0; border-bottom:none;}
+
+.accordion .panel .panel-heading {
+	background-color: transparent;
+	padding: 0;
+	border:none;
+}
+
+.accordion .panel .panel-heading h4 {
+	color: #373636;
+font-family:@font-secondary;
+font-size: 16px;
+font-weight: 500;
+text-transform: uppercase;
+}
+
+.accordion .panel-heading {
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	border-radius:0;
+}
+.accordion .panel-heading a { line-height:1;color: #373636;}
+
+.accordion .panel-heading a:hover,
+.accordion .panel-heading a:focus,
+.accordion .panel-heading a:active {
+	text-decoration: none;
+	color: #373636;
+}
+
+.accordion .panel-heading .accordion-toggle:after {
+	content: "\f068";   		/* symbol for "opening" panels */
+	float: right;
+ font-family:@awesome-font;
+	font-size: 10px;
+ color:#d22e2e;
+	text-align: center;
+	width:11px;
+	height: 11px;
+	line-height: 11px;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	border-radius:0;
+}
+
+.accordion .panel-heading .accordion-toggle.collapsed:after {
+	content: "\f067";    /* symbol for "collapsed" panels */
+color:@color-theme;
+	background-color: transparent;
+}
+
+.accordion .panel .panel-body {
+	border-top-color:transparent !important;
+	padding: 20px 0 0 0;
+	color: #a6a6a6;
+font-family: "Open Sans";
+font-size: 13px;
+font-weight: 400;
+line-height: 21px;
+}
+.accordion .panel-group .panel+.panel { margin-top:0 !important}

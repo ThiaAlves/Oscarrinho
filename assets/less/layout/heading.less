@@ -1,0 +1,60 @@
+
+/*------------------------------------*\
+    #HEADING
+\*------------------------------------*/
+.heading {
+	margin-bottom: 60px
+}
+
+.heading h2 {
+ color: @color-heading;
+	font-size: 25px;
+	font-weight: 700;
+	line-height: 1;
+	text-transform: uppercase;
+	margin-bottom: 0
+}
+
+.heading .subheading {
+ color: @color-theme;
+font-family: @font-secondary;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 8px;
+	text-transform: uppercase;
+	margin-bottom: 14px;
+	padding-left: 18px;
+	position: relative
+}
+
+.subheading:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	width: 8px;
+	height: 8px;
+	background-color: #d22e2e;
+	vertical-align: middle
+}
+
+.heading-desc {
+	margin-top: 30px
+}
+
+.heading-desc p {
+	color: #a6a6a6;
+font-family: @font-secondary;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 23px;
+	margin-bottom: 0
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 991px) {
+.heading-desc p { margin-bottom:30px;}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+}

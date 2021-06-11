@@ -1,0 +1,63 @@
+{
+	"files": {
+		"style.less": {
+			"engines": [
+				{
+					"compiler": "less",
+					"output": "../css/style.css",
+					"options": {
+						"compress": false,
+						"ieCompat": false,
+						"strictMath": false,
+						"strictUnits": false,
+						"javascriptEnabled": false,
+						"sourceMap": true
+					}
+				}
+			],
+			"sources": [
+				"base/base.less",
+				"base/intro.less",
+				"base/mixins.less",
+				"base/reset.less",
+				"base/vars.less",
+				"layout/accordion.less",
+				"layout/alert.less",
+				"layout/background.less",
+				"layout/blockquote.less",
+				"layout/buttons.less",
+				"layout/color.less",
+				"layout/forms.less",
+				"layout/heading.less",
+				"layout/helpers.less",
+				"layout/icon-list.less",
+				"layout/icons.less",
+				"layout/media.less",
+				"layout/misc.less",
+				"layout/page-title.less",
+				"layout/pagination.less",
+				"layout/skills.less",
+				"layout/typography.less",
+				"module/404.less",
+				"module/action.less",
+				"module/blog.less",
+				"module/client.less",
+				"module/contact.less",
+				"module/faq.less",
+				"module/feature.less",
+				"module/footer.less",
+				"module/header.less",
+				"module/hero.less",
+				"module/maintenance.less",
+				"module/menu.less",
+				"module/pricing.less",
+				"module/shop.less",
+				"module/shortcode.less",
+				"module/sidebar.less",
+				"module/soon.less",
+				"module/team.less",
+				"module/testimonial.less"
+			]
+		}
+	}
+}
