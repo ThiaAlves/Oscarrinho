@@ -22,7 +22,7 @@
 				<tr th:each="v : ${veiculos}">
 					<td th:text="${v.id}"></td>
 					<td th:text="${v.modelo}"></td>
-					<td th:text="${v.anofabricacao}"></td>
+					<td th:text="${v.anomodelo}"></td>
 					<td th:text="${'R$'+ #numbers.formatDecimal({v.valor},1, 'DEFAULT', 2, 'DEFAULT')}"></td>
 				<!--<td th:text="${v.fotodestaque}"></td> -->
 					<td><img width="100%" th:src="@{'/img/veiculos/'+${v.fotodestaque}}" data-lightbox="foto" th:title="${v.modelo}"></td>

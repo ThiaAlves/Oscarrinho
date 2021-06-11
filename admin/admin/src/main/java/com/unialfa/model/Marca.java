@@ -11,7 +11,7 @@ public class Marca {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String marca;
+	private String nome;
 	
 	public Long getId() {
 		return id;
@@ -21,18 +21,18 @@ public class Marca {
 		this.id = id;
 	}
 
-	public String getMarca() {
-		return marca;
+	public String getNome() {
+		return nome;
 	}
 	
-	public void setMarca(String marca) {
-		this.marca = marca;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return id + " " + marca;
+		return id + " " + nome;
 	}
 	
 

@@ -9,9 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.unialfa.model.Usuario;
 import com.unialfa.repository.UsuarioRepository;
+import com.unialfa.util.GeradorSenha;
 
 @Controller
 @RequestMapping("/usuario")
@@ -26,14 +28,23 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("salvar")
-	public String salvar(Usuario usuario) {
+	public String salvar(Usuario usuario, RedirectAttributes redirectAttribute) {
+
+		String senhaOriginal;
+		senhaOriginal = usuario.getSenha();
+		usuario.setSenha(new GeradorSenha().criptografa(senhaOriginal));
 		repo.save(usuario);
+		redirectAttribute.addFlashAttribute("mensagem", "Usuario inserido com sucesso!");
 		return "redirect:lista";
 	}
 
 	@PostMapping("editar/salvar")
-	public String atualizar(Usuario usuario) {
+	public String atualizar(Usuario usuario, RedirectAttributes redirectAttribute) {
+		String senhaOriginal;
+		senhaOriginal = usuario.getSenha();
+		usuario.setSenha(new GeradorSenha().criptografa(senhaOriginal));
 		repo.save(usuario);
+		redirectAttribute.addFlashAttribute("mensagem", "Usuario inserido com sucesso!");
 		return "redirect:../lista";
 	}
 	

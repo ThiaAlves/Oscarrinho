@@ -7,7 +7,7 @@
 		<div class="container">
 			<h1>Cadastro de Veículo</h1>
 
-			<form action="salvar" method="post">
+			<form action="salvar" method="post" enctype="multipart/form-data">
 				<div class=form-group>
 					<br>
 					<div class="row">
@@ -100,37 +100,55 @@
 					<div class="row">
 						<div class="col-4 col-sm-4">
 							<label>Valor:</label>
-							<input type="text" class="form-control" id="valor" name="valor" th:value="${veiculo.valor}"/>
+							<input type="number" class="form-control" id="valor" name="valor" th:value="${veiculo.valor}"/>
 							<br>
 						</div>
 						<div class="col-4 col-sm-4">	
 							<label>Tipo:</label>
-							<input type="text" class="form-control" id="tipo" name="tipo" th:value="${veiculo.tipo}"/>
+							<select name="tipo" id="tipo" class="form-control" required>
+  								<option value="">Selecione Tipo:</option>
+   								<option value="1">Cupê</option>
+   								<option value="2">Crossover</option>
+   								<option value="3">Esportivo</option>
+   								<option value="4">Hatch</option>
+   								<option value="5">Jipe</option>
+   								<option value="6">Picape</option>
+   								<option value="7">Sedan</option>
+   								<option value="8">SUV</option>
+   								<option value="9">Van</option>
+   								
+							</select>
 							<br>
 						</div>
 						<div class="col-4 col-sm-4">	
 							<label>Foto Destaque:</label>
-							<input type="text" class="form-control" id="fotodestaque" name="fotodestaque" th:value="${veiculo.fotodestaque}"/>
+							<input type="file" placeholder="IMAGEM" class="form-control" id="imagem" name="imagem" th:value="${veiculo.fotodestaque}"/>
 							<br>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-4 col-sm-4">
 							<label>Marca:</label>
-							<select name="marca_id" id="marca_id" class="form-control" th:field="{marcas}">
+							<select name="marca_id" id="marca_id" class="form-control">
   								<option value="">Selecione a Marca:</option>
-   								<option th:each="m : ${marcas}" th:value="${m.id}" th:text="#{|m.${m.marca}|}"></option>
+   								<option th:each="m : ${marcas}" th:value="${m.id}" th:text="${m.nome}"></option>
 							</select>
 							<br>
 						</div>
 						<div class="col-4 col-sm-4">	
 							<label>Cor:</label>
-							<input type="text" class="form-control" id="cor_id" name="cor_id" th:value="${veiculo.cor_id}"/>
+							<select name="cor_id" id="cor_id" class="form-control">
+  								<option value="">Selecione a Cor:</option>
+   								<option th:each="c : ${cores}" th:value="${c.id}" th:text="${c.nome}"></option>
+							</select>
 							<br>
 						</div>
 						<div class="col-4 col-sm-4">	
 							<label>Usuário:</label>
-							<input type="text" class="form-control" id="usuario_id" name="usuario_id" th:value="${veiculo.usuario_id}"/>
+							<select name="usuario_id" id="usuario_id" class="form-control">
+  								<option value="">Selecione o Usuário:</option>
+   								<option th:each="u : ${usuarios}" th:value="${u.id}" th:text="${u.nome}"></option>
+							</select>
 							<br>
 						</div>
 					</div>

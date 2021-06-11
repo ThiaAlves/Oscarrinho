@@ -18,7 +18,7 @@
 			<tbody>
 				<tr th:each="c : ${cores}">
 					<td th:text="${c.id}"></td>
-					<td th:text="${c.cor}"></td>
+					<td th:text="${c.nome}"></td>
 					<td><a th:href="@{editar/(id=${c.id})}" class="btn btn-success btn-sm">
                             <i class="fas fa-edit"></i>
                          </a>

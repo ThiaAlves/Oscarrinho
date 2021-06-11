@@ -1,29 +1,39 @@
 package com.unialfa.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 
 @Entity
 public class Veiculo {
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String modelo;
-	private String anomodelo;
-	private String anofabricacao;
 	private Float valor;
 	private String tipo;
-	private String fotodestaque;
+	private String fotodestaque;	
+	
+	@JoinColumn(name = "marca_id")
 	private Integer marca_id;
+	
+	@JoinColumn(name = "cor_id")
 	private Integer cor_id;
+	
+	@JoinColumn(name = "usuario_id")
 	private Integer usuario_id;
+	
 	private String opcionais;
-
+	private Integer anomodelo;
+	private Integer anofabricacao;
+	
 	public Long getId() {
 		return id;
 	}
@@ -40,21 +50,22 @@ public class Veiculo {
 		this.modelo = modelo;
 	}
     
-    public String getAnomodelo() {
-		return anomodelo;
-	}
-    
-    public void setAnomodelo(String anomodelo) {
-		this.anomodelo = anomodelo;
-	}
-    
-    public String getAnofabricacao() {
+    public Integer getAnofabricacao() {
 		return anofabricacao;
 	}
     
-    public void setAnofabricacao(String anofabricacao) {
+    public void setAnofabricacao(Integer anofabricacao) {
 		this.anofabricacao = anofabricacao;
 	}
+    
+    public Integer getAnomodelo() {
+		return anomodelo;
+	}
+    
+    public void setAnomodelo(Integer anomodelo) {
+		this.anomodelo = anomodelo;
+	}
+    
     
     public Float getValor() {
 		return valor;
@@ -103,6 +114,8 @@ public class Veiculo {
     public void setUsuario_id(Integer usuario_id) {
 		this.usuario_id = usuario_id;
 	}
+  
+
     
     public String getOpcionais() {
 		return opcionais;

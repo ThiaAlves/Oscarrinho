@@ -6,4 +6,6 @@ import com.unialfa.model.Cor;
 
 public interface CorRepository extends JpaRepository<Cor, Long>{
 
+	
+	
 }
