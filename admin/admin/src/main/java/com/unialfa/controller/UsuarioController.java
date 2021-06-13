@@ -34,7 +34,7 @@ public class UsuarioController {
 		senhaOriginal = usuario.getSenha();
 		usuario.setSenha(new GeradorSenha().criptografa(senhaOriginal));
 		repo.save(usuario);
-		redirectAttribute.addFlashAttribute("mensagem", "Usuario inserido com sucesso!");
+		redirectAttribute.addFlashAttribute("mensagem", "1");
 		return "redirect:lista";
 	}
 
@@ -44,7 +44,7 @@ public class UsuarioController {
 		senhaOriginal = usuario.getSenha();
 		usuario.setSenha(new GeradorSenha().criptografa(senhaOriginal));
 		repo.save(usuario);
-		redirectAttribute.addFlashAttribute("mensagem", "Usuario inserido com sucesso!");
+		redirectAttribute.addFlashAttribute("mensagem", "2");
 		return "redirect:../lista";
 	}
 	

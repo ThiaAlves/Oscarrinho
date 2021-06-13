@@ -6,7 +6,10 @@
 	<body>
 		<div class="container">
 			<h1>Cadastro de Veículo</h1>
-
+			<div class="text-right">
+				<img th:src="@{'/img/veiculos/'+${veiculo.fotodestaque}}" height="60" width="110"
+				class="img-responsive pull-right">
+			</div>
 			<form action="salvar" method="post" enctype="multipart/form-data">
 				<div class=form-group>
 					<br>
@@ -18,89 +21,21 @@
 						</div>
 						<div class="col-6 col-sm-3">
 							<label>Ano Modelo:</label>
-							<select name="anomodelo" id="anomodelo" class="form-control">
-  								<option value="">Selecione o Ano</option>
-   								<option value="2022">2022</option>
-   								<option value="2021">2021</option>
-   								<option value="2020">2020</option>
-   								<option value="2019">2019</option>
-   								<option value="2018">2018</option>
-   								<option value="2017">2017</option>
-   								<option value="2016">2016</option>
-   								<option value="2015">2015</option>
-   								<option value="2014">2014</option>
-   								<option value="2013">2013</option>
-   								<option value="2012">2012</option>
-   								<option value="2011">2011</option>
-   								<option value="2010">2010</option>
-   								<option value="2009">2009</option>
-   								<option value="2008">2008</option>
-   								<option value="2007">2007</option>
-   								<option value="2006">2006</option>
-   								<option value="2005">2005</option>
-   								<option value="2004">2004</option>
-   								<option value="2003">2003</option>
-   								<option value="2002">2002</option>
-   								<option value="2001">2001</option>
-   								<option value="2000">2000</option>
-   								<option value="1999">1999</option>
-   								<option value="1998">1998</option>
-   								<option value="1997">1997</option>
-   								<option value="1996">1996</option>
-   								<option value="1995">1995</option>
-   								<option value="1994">1994</option>
-   								<option value="1993">1993</option>
-   								<option value="1992">1992</option>
-   								<option value="1991">1991</option>
-   								<option value="1990">1990</option>
-							</select>
+							<input type="text" class="form-control" id="anomodelo" name="anomodelo" min="4" max="4" th:value="${#strings.substring(veiculo.anomodelo,0,4)}"/> 
 							<br>
 						</div>
 						<div class="col-6 col-sm-3">
 							<label>Ano Fabricação:</label>
-						    <select name="anofabricacao" id="anofabriacao" class="form-control">
-  								<option value="">Selecione o Ano</option>
-   								<option value="2022">2022</option>
-   								<option value="2021">2021</option>
-   								<option value="2020">2020</option>
-   								<option value="2019">2019</option>
-   								<option value="2018">2018</option>
-   								<option value="2017">2017</option>
-   								<option value="2016">2016</option>
-   								<option value="2015">2015</option>
-   								<option value="2014">2014</option>
-   								<option value="2013">2013</option>
-   								<option value="2012">2012</option>
-   								<option value="2011">2011</option>
-   								<option value="2010">2010</option>
-   								<option value="2009">2009</option>
-   								<option value="2008">2008</option>
-   								<option value="2007">2007</option>
-   								<option value="2006">2006</option>
-   								<option value="2005">2005</option>
-   								<option value="2004">2004</option>
-   								<option value="2003">2003</option>
-   								<option value="2002">2002</option>
-   								<option value="2001">2001</option>
-   								<option value="2000">2000</option>
-   								<option value="1999">1999</option>
-   								<option value="1998">1998</option>
-   								<option value="1997">1997</option>
-   								<option value="1996">1996</option>
-   								<option value="1995">1995</option>
-   								<option value="1994">1994</option>
-   								<option value="1993">1993</option>
-   								<option value="1992">1992</option>
-   								<option value="1991">1991</option>
-   								<option value="1990">1990</option>
-							</select>
+						   <input type="text" class="form-control" id="anofabricacao" name="anofabricacao"
+						min="4" max="4"
+						th:value="${#strings.substring(veiculo.anofabricacao,0,4)}"/> 
 							<br>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-4 col-sm-4">
 							<label>Valor:</label>
-							<input type="number" class="form-control" id="valor" name="valor" th:value="${veiculo.valor}"/>
+							<input type="number" class="form-control valor" id="valor" name="valor" th:value="${veiculo.valor}" required/>
 							<br>
 						</div>
 						<div class="col-4 col-sm-4">	
@@ -122,22 +57,23 @@
 						</div>
 						<div class="col-4 col-sm-4">	
 							<label>Foto Destaque:</label>
-							<input type="file" placeholder="IMAGEM" class="form-control" id="imagem" name="imagem" th:value="${veiculo.fotodestaque}"/>
+							<input placeholder="IMAGEM" type="file" class="form-control" id="imagemFile" name="imagemFile" required/>
 							<br>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-4 col-sm-4">
 							<label>Marca:</label>
-							<select name="marca_id" id="marca_id" class="form-control">
+							<select name="marca_id" id="marca_id" class="form-control" required>
   								<option value="">Selecione a Marca:</option>
-   								<option th:each="m : ${marcas}" th:value="${m.id}" th:text="${m.nome}"></option>
+   								<option th:each="m : ${marcas}" th:value="${m.id}" th:text="${m.nome}"
+   								th:selected="${marca_id} == ${m.id}"></option>
 							</select>
 							<br>
 						</div>
 						<div class="col-4 col-sm-4">	
 							<label>Cor:</label>
-							<select name="cor_id" id="cor_id" class="form-control">
+							<select name="cor_id" id="cor_id" class="form-control" required>
   								<option value="">Selecione a Cor:</option>
    								<option th:each="c : ${cores}" th:value="${c.id}" th:text="${c.nome}"></option>
 							</select>
@@ -145,7 +81,7 @@
 						</div>
 						<div class="col-4 col-sm-4">	
 							<label>Usuário:</label>
-							<select name="usuario_id" id="usuario_id" class="form-control">
+							<select name="usuario_id" id="usuario_id" class="form-control" required>
   								<option value="">Selecione o Usuário:</option>
    								<option th:each="u : ${usuarios}" th:value="${u.id}" th:text="${u.nome}"></option>
 							</select>
@@ -162,7 +98,8 @@
 					<input type="hidden" id="id" name="id" th:value="${veiculo.id}" th:if="${veiculo != null}">
 				</div>
 				<div class="float-right">
-					<button type="submit" class="btn btn-primary">Salvar</button>
+					<a type="button" href="/" class="btn btn-danger">Voltar</a>
+					<button type="submit" class="btn btn-primary">Salvar/Atualizar</button>
 				</div>
 				<br>
 				<br>
@@ -172,3 +109,16 @@
 	</div>
 	</body>
 </html>
+<script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+<script>
+if('${usuarios}' == 'showAlert'){
+	Swal.fire({
+		  icon: 'success',
+		  title: 'Sucesso!',
+		  text: 'Veículo cadastrado com successo',
+		})
+
+</script>
+
+

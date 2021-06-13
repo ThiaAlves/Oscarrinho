@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.unialfa.model.Cor;
 import com.unialfa.repository.CorRepository;
@@ -26,14 +27,16 @@ public class CorController {
 	}
 	
 	@PostMapping("salvar")
-	public String salvar(Cor cor) {
+	public String salvar(Cor cor, RedirectAttributes redirectAttribute) {
 		repo.save(cor);
+		redirectAttribute.addFlashAttribute("mensagem", "1");
 		return "redirect:lista";
 	}
 
 	@PostMapping("editar/salvar")
-	public String atualizar(Cor cor) {
+	public String atualizar(Cor cor, RedirectAttributes redirectAttribute) {
 		repo.save(cor);
+		redirectAttribute.addFlashAttribute("mensagem", "2");
 		return "redirect:../lista";
 	}
 	

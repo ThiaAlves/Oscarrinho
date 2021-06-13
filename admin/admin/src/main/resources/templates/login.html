@@ -3,42 +3,38 @@
 <head th:include="header :: head">
     <title>Login </title>
 </head>
-<body style="background-color:#EEEEEE">
+<body style="background-image:  url('https://www.autoscout24.de/cms-content-assets/50rLOfuk4I6VFsxOSZqm6x-324bdefa0c5363752a08b155c48fc920-Fase_2_____Le_risposte_alle_domande_delle_Concessionarie_d-Auto_1-1100.jpg');
+ background-repeat: no-repeat; background-size:cover;">
 
 <!-- cabeçalho da aplicação -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">OsCarrinho</a>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a type="button" class="navbar-brand btn btn-danger" href="http://localhost/oscarrinho/index.php">Voltar</a>
+  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="http://localhost/oscarrinho">Home</a>
-      </li>
     </ul>
   </div>
 </nav>
 <div class="container">
 
-    <div class="row text-center " style="
+    <div class="row text-center" style="
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 85vh;
-    background-position: center center;
-    background-repeat: no-repeat;
     min-width: 100%;
-    margin-left: 0px;
     display: flex;
     flex-direction: column;
-    -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
+    max-width: 215px;
 ">
-        <div class="bg-light">
+        <div class="bg-light col-3 p-3 rounded">
             <form th:action="@{/login}" method="post">
                 <fieldset>
                     <h2>Login</h2>
@@ -65,7 +61,7 @@
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            <input type="submit" class="btn btn-lg btn-danger btn-block" value="Logar"/>
+                            <input type="submit" class="btn btn-lg btn-success btn-block" value="Entrar"/>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6">
                         </div>
@@ -76,9 +72,5 @@
     </div>
 
 </div>
-
-<!-- Rodapé da aplicação -->
-<div th:replace="footer :: footer"/>
-
 </body>
 </html>

@@ -5,6 +5,7 @@
 </head>
 <body>
 	<div class="container">
+	<input hidden th:value="${mensagem}" id="message">
 		<h1>Lista de Cores</h1>
 
 		<table class="table table-striped table-bordered table-hover">
@@ -34,3 +35,18 @@
 	</div>
 </body>
 </html>
+<script>
+if(document.getElementById('message').value == 1 ){
+	Swal.fire({
+		  icon: 'success',
+		  title: 'Successo',
+		  text: 'Cor inserida com successo'
+		})
+} else if(document.getElementById('message').value == 2 ) {
+	Swal.fire({
+		  icon: 'success',
+		  title: 'Successo',
+		  text: 'Cor atualizada com successo'
+		})
+}
+</script>

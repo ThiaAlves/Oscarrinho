@@ -25,14 +25,15 @@
 						</div>
 						<div class="col-6 col-sm-6">	
 							<label>Senha:</label>
-							<input type="text" class="form-control" id="senha" name="senha"/>
+							<input type="password" class="form-control" id="senha" name="senha"/>
 							<br>
 						</div>
 					</div>		
 					<input type="hidden" id="id" name="id" th:value="${usuario.id}" th:if="${usuario != null}">
 				</div>
 				<div class="float-right">
-					<button type="submit" class="btn btn-primary">Salvar</button>
+					<a type="button" href="/" class="btn btn-danger">Voltar</a>
+					<button type="submit" class="btn btn-primary">Salvar/Atualizar</button>
 				</div>
 				<br>
 				<br>

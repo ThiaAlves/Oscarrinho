@@ -63,15 +63,17 @@ public class VeiculoController {
 			veiculo.setFotodestaque(fotoService.uploadFotoDestaque(imagemFile));
 		
 		repo.save(veiculo);
-		redirectAttribute.addFlashAttribute("usuarios","showAlert");
+		redirectAttribute.addFlashAttribute("mensagem", "1");
 		return "redirect:lista"; 
 	}
 
 	@PostMapping("editar/salvar")
-	public String atualizar(Veiculo veiculo, MultipartFile imagemFile) {
+	public String atualizar(Veiculo veiculo, MultipartFile imagemFile, RedirectAttributes redirectAttribute) {
+		
 		fotoService.uploadFotoDestaqueTarget(imagemFile);
 		veiculo.setFotodestaque(fotoService.uploadFotoDestaque(imagemFile));
 		repo.save(veiculo);
+		redirectAttribute.addFlashAttribute("mensagem", "2");
 		return "redirect:../lista";
 	}
 	
@@ -84,6 +86,10 @@ public class VeiculoController {
 	@GetMapping(value = "editar")
 	public String editar(@PathParam(value = "id") Long id, Model model, MultipartFile imagem) {
 		Veiculo v = repo.getOne(id);
+		model.addAttribute("marcas",marcaRepo.findAll());
+		model.addAttribute("cores",corRepo.findAll());
+		model.addAttribute("usuarios",usuarioRepo.findAll());
+		model.addAttribute("tipos",repo.findAll());
 		model.addAttribute("veiculo", v);
 		
 		return "veiculo/formulario";

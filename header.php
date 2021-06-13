@@ -1,3 +1,5 @@
+<?php include "libs/conectar.php";?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -21,6 +23,8 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+	<script src="semantic/dist/semantic.min.js"></script>
     <script type="text/javascript" src="jquery.cycle2.min.js"></script>
     <script type="text/javascript" src="js/lightbox.js"></script>
 	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -30,6 +34,7 @@
 	<script type="text/javascript" src="assets/js/jquery.cycle2.min.js"></script>
 	<script type="text/javascript" src="assets/js/magnific-popup.js"></script>
 	<script type="text/javascript" src="assets/js/scripts.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/card.css">
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 <!--[if lt IE 9]>
@@ -47,7 +52,7 @@
 <div id="wrapper" class="wrapper clearfix">
 	<header id="navbar-spy" class="header header-1">
 		<!-- .top-bar end -->
-		<nav id="primary-menu" class="navbar navbar-fixed-top">
+		<nav id="primary-menu" class="navbar navbar-fixed-top" style="background-color: white; box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
