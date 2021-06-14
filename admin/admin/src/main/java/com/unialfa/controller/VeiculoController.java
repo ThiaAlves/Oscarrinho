@@ -96,8 +96,9 @@ public class VeiculoController {
 	}
 	
 	@GetMapping(value = "excluir")
-	public String excluir(@PathParam(value = "id") Long id) {
+	public String excluir(@PathParam(value = "id") Long id, RedirectAttributes redirectAttribute) {
 		repo.deleteById(id);
+		redirectAttribute.addFlashAttribute("mensagem", "3");
 		return "redirect:../lista";
 	}
 	

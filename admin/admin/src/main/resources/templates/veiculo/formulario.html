@@ -21,13 +21,13 @@
 						</div>
 						<div class="col-6 col-sm-3">
 							<label>Ano Modelo:</label>
-							<input type="text" class="form-control" id="anomodelo" name="anomodelo" min="4" max="4" th:value="${#strings.substring(veiculo.anomodelo,0,4)}"/> 
+							<input type="text" class="form-control" id="anomodelo" name="anomodelo" minlength="4" maxlength="4" min="1980" max="2022" th:value="${#strings.substring(veiculo.anomodelo,0,4)}"/> 
 							<br>
 						</div>
 						<div class="col-6 col-sm-3">
 							<label>Ano Fabricação:</label>
 						   <input type="text" class="form-control" id="anofabricacao" name="anofabricacao"
-						min="4" max="4"
+						minlength="4" maxlength="4" min="1980" max="2022"
 						th:value="${#strings.substring(veiculo.anofabricacao,0,4)}"/> 
 							<br>
 						</div>

@@ -43,7 +43,9 @@
 	</div>
 </body>
 </html>
-<script>
+<script th:inline="javascript">
+
+// Mostra mensagem de salvar
 if(document.getElementById('message').value == 1 ){
 	Swal.fire({
 		  icon: 'success',
@@ -56,5 +58,10 @@ if(document.getElementById('message').value == 1 ){
 		  title: 'Successo',
 		  text: 'Veículo atualizado com successo'
 		})
-}
+} else if(document.getElementById('message').value == 3 ) {
+	Swal.fire({
+		  icon: 'success',
+		  title: 'Successo',
+		  text: 'Veículo excluído com successo'
+		})
 </script>
