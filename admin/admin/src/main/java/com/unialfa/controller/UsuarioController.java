@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.unialfa.model.Cor;
 import com.unialfa.model.Usuario;
 import com.unialfa.repository.UsuarioRepository;
 import com.unialfa.util.GeradorSenha;
@@ -61,11 +62,29 @@ public class UsuarioController {
 		
 		return "usuario/formulario";
 	}
-	
-	@GetMapping(value = "excluir")
-	public String excluir(@PathParam(value = "id") Long id) {
-		repo.deleteById(id);
-		return "redirect:../lista";
+
+	@GetMapping(value = "inativar")
+	public String inativar(@PathParam(value = "id") Long id, Model model, boolean status) {
+		Usuario u = repo.getOne(id);
+		u.setStatus(false);
+		repo.save(u);
+		return "redirect:../lista";	
 	}
+	
+	
+	@GetMapping(value = "ativar")
+	public String ativar(@PathParam(value = "id") Long id, Model model, boolean status) {
+		Usuario u = repo.getOne(id);
+		u.setStatus(true);
+		repo.save(u);
+		return "redirect:../lista";	
+	}
+	
+	
+//	@GetMapping(value = "excluir")
+//	public String excluir(@PathParam(value = "id") Long id) {
+//		repo.deleteById(id);
+//		return "redirect:../lista";
+//	}
 	
 }

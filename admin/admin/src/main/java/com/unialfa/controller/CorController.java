@@ -54,10 +54,21 @@ public class CorController {
 		return "cor/formulario";
 	}
 	
-	@GetMapping(value = "excluir")
-	public String excluir(@PathParam(value = "id") Long id) {
-		repo.deleteById(id);
-		return "redirect:../lista";
+	@GetMapping(value = "inativar")
+	public String inativar(@PathParam(value = "id") Long id, Model model, boolean status) {
+		Cor c = repo.getOne(id);
+		c.setStatus(false);
+		repo.save(c);
+		return "redirect:../lista";	
+	}
+	
+	
+	@GetMapping(value = "ativar")
+	public String ativar(@PathParam(value = "id") Long id, Model model, boolean status) {
+		Cor c = repo.getOne(id);
+		c.setStatus(true);
+		repo.save(c);
+		return "redirect:../lista";	
 	}
 	
 }

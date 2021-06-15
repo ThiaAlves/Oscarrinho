@@ -12,7 +12,8 @@
 			<thead>
 				<tr>
 					<th width="10%">Id</th>
-					<th width="60%">Cor</th>
+					<th width="20%">Cor</th>
+					<th width="10%">Status</th>
 					<th width="10%">Ações</th>
 				</tr>
 			</thead>
@@ -20,9 +21,15 @@
 				<tr th:each="c : ${cores}">
 					<td th:text="${c.id}"></td>
 					<td th:text="${c.nome}"></td>
+					<td><span class='badge badge-danger' th:unless="${c.status} == true">Inativo</span>
+						<span class='badge badge-success' th:unless="${c.status} == false">Ativo</span></td>
 					<td><a th:href="@{editar/(id=${c.id})}" class="btn btn-success btn-sm">
                             <i class="fas fa-edit"></i>
                          </a>
+                         <button type="button" class="btn btn-success btn-sm" th:onclick="javascript:location.href=[[@{ativar/(id=${c.id})}]]">Ativar</button>
+                         <button type="button" class="btn btn-danger btn-sm" th:onclick="javascript:location.href=[[@{inativar/(id=${c.id})}]]">Inativar</button>
+                         
+
                         <!-- <a th:href="@{excluir/(id=${c.id})}" class="btn btn-danger btn-sm">
                            <i class="fas fa-trash"></i>
                         </a>-->
@@ -36,6 +43,16 @@
 </body>
 </html>
 <script>
+function mudaStatus(id) {
+	  // Pega o Checkbox
+	  var checkBox = document.getElementById("statusCheck");
+
+	  // If the checkbox is checked, display the output text
+	  if (checkBox.checked == true || checkBox.checked == false){
+				location.href="excluir/cor/"+id;
+		}
+	} 
+
 if(document.getElementById('message').value == 1 ){
 	Swal.fire({
 		  icon: 'success',

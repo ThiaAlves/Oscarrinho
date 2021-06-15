@@ -20,6 +20,7 @@ public class Usuario implements UserDetails{
 	private String nome;
 	private String login;
 	private String senha;
+	private Boolean status;
 
 	public Long getId() {
 		return id;
@@ -53,10 +54,18 @@ public class Usuario implements UserDetails{
 		this.senha = senha;
 	}
 
+    public Boolean getStatus() {
+		return status;
+	}
+    
+    public void setStatus(Boolean status) {
+		this.status = status;
+	}
+    
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return id + " " + nome + " " + login + " " + senha;
+		return id + " " + nome + " " + login + " " + senha + " " +status;
 	}
 
 	@Override

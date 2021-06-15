@@ -12,8 +12,9 @@
 			<thead>
 				<tr>
 					<th width="10%">Id</th>
-					<th width="40%">Nome</th>
-					<th width="40%">Login</th>
+					<th width="10%">Nome</th>
+					<th width="10%">Login</th>
+					<th width="10%">Status</th>
 					<th width="10%">Ações</th>
 				</tr>
 			</thead>
@@ -22,12 +23,16 @@
 					<td th:text="${u.id}"></td>
 					<td th:text="${u.nome}"></td>
 					<td th:text="${u.login}"></td>
+					<td><span class='badge badge-danger' th:unless="${u.status} == true">Inativo</span>
+						<span class='badge badge-success' th:unless="${u.status} == false">Ativo</span></td>
 					<td><a th:href="@{editar/(id=${u.id})}" class="btn btn-success btn-sm">
                             <i class="fas fa-edit"></i>
                          </a>
-                        <a th:href="@{excluir/(id=${u.id})}" class="btn btn-danger btn-sm">
+                          <button type="button" class="btn btn-success btn-sm" th:onclick="javascript:location.href=[[@{ativar/(id=${u.id})}]]">Ativar</button>
+                         <button type="button" class="btn btn-danger btn-sm" th:onclick="javascript:location.href=[[@{inativar/(id=${u.id})}]]">Inativar</button>
+                        <!--  -<a th:href="@{excluir/(id=${u.id})}" class="btn btn-danger btn-sm">
                            <i class="fas fa-trash"></i>
-                        </a>
+                        </a>-->
                    </td>
 				</tr>
 			</tbody>

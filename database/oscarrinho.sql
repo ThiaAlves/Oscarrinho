@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 06-Jun-2021 às 22:02
+-- Tempo de geração: 14-Jun-2021 às 21:55
 -- Versão do servidor: 8.0.25-0ubuntu0.20.04.1
 -- versão do PHP: 7.4.3
 
@@ -30,24 +30,25 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cor` (
   `id` int NOT NULL,
-  `cor` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+  `nome` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `status` tinyint DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `cor`
 --
 
-INSERT INTO `cor` (`id`, `cor`) VALUES
-(1, 'branco'),
-(2, 'prata'),
-(3, 'preto'),
-(4, 'cinza'),
-(5, 'vermelho'),
-(6, 'bege'),
-(7, 'azul'),
-(8, 'amarelo'),
-(9, 'verde'),
-(10, 'laranja');
+INSERT INTO `cor` (`id`, `nome`, `status`) VALUES
+(1, 'Branco', 1),
+(2, 'Prata', 1),
+(3, 'Preto', 1),
+(4, 'Cinza', 1),
+(5, 'Vermelho', 1),
+(6, 'Bege', 1),
+(7, 'Azul', 1),
+(8, 'Amarelo', 1),
+(9, 'Verde', 1),
+(10, 'Laranja', 1);
 
 -- --------------------------------------------------------
 
@@ -57,33 +58,35 @@ INSERT INTO `cor` (`id`, `cor`) VALUES
 
 CREATE TABLE `marca` (
   `id` int NOT NULL,
-  `marca` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+  `nome` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `status` tinyint(1) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `marca`
 --
 
-INSERT INTO `marca` (`id`, `marca`) VALUES
-(1, 'audi'),
-(2, 'bmw'),
-(3, 'citroen'),
-(4, 'ferrari'),
-(5, 'fiat'),
-(6, 'ford'),
-(7, 'honda'),
-(8, 'hyundai'),
-(9, 'jeep'),
-(10, 'lamborghini'),
-(11, 'land rover'),
-(12, 'mitsubishi'),
-(13, 'nissan'),
-(14, 'peugeot'),
-(15, 'porche'),
-(16, 'renault'),
-(17, 'toyota'),
-(18, 'volkswagen'),
-(19, 'chevrolet');
+INSERT INTO `marca` (`id`, `nome`, `status`) VALUES
+(1, 'Audi', 1),
+(2, 'Bmw', 1),
+(3, 'Citroen', 1),
+(4, 'Ferrari', 1),
+(5, 'Fiat', 1),
+(6, 'Ford', 1),
+(7, 'Honda', 1),
+(8, 'Hyundai', 1),
+(9, 'Jeep', 1),
+(10, 'Lamborghini', 1),
+(11, 'Land Rover', 1),
+(12, 'Mitsubishi', 1),
+(13, 'Nissan', 1),
+(14, 'Peugeot', 1),
+(15, 'Porche', 1),
+(16, 'Renault', 1),
+(17, 'Toyota', 1),
+(18, 'Volkswagen', 1),
+(19, 'Chevrolet', 1),
+(23, 'Tesla', 1);
 
 -- --------------------------------------------------------
 
@@ -95,15 +98,17 @@ CREATE TABLE `usuario` (
   `id` int NOT NULL,
   `nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `login` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `senha` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+  `senha` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `status` tinyint(1) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nome`, `login`, `senha`) VALUES
-(1, 'administrador', 'admin', '21232f297a57a5a743894a0e4a801fc3');
+INSERT INTO `usuario` (`id`, `nome`, `login`, `senha`, `status`) VALUES
+(1, 'administrador', 'admin', '$2a$10$adFg3jAZL/VcqFqw8FA7/eyWbnf9r5yabt/2gb.ZpewrMCV8SPs3C', 1),
+(7, 'test', 'teste', '$2a$10$6nn.YMGQ5aAV0GxxfqBKMuoyx0MqGHAF.2Y4Y2AJVwNH7oRAy7KZq', 0);
 
 -- --------------------------------------------------------
 
@@ -130,10 +135,10 @@ CREATE TABLE `veiculo` (
 --
 
 INSERT INTO `veiculo` (`id`, `modelo`, `anomodelo`, `anofabricacao`, `valor`, `tipo`, `fotoDestaque`, `marca_id`, `cor_id`, `usuario_id`, `opcionais`) VALUES
-(1, 'A3', 2022, 2021, 264990, 'hatch', 'audiA3-2022.jpeg', 1, 5, 1, 'Múltimídia.\r\nAr-Condicionado.\r\nPiloto automático.\r\nVolante com regulagem de altura.\r\nBancos de couro.\r\nVidro elétrico.\r\nTeto Solar.\r\nComputador de bordo'),
+(1, 'A3', 2022, 2021, 264990, 'hatch', 'audiA3-2022.jpeg', 1, 5, 1, 'Múltimídia.Ar-Condicionado.Piloto automático.Volante com regulagem de altura.Bancos de couro.Vidro elétrico.Teto Solar.Computador de bordo'),
 (5, 'R8', 2021, 2021, 1310900, 'cupe', 'audiR8-2021.jpg', 1, 7, 1, 'Alarme.Piloto Automático. Ar-Condicionado.Vidros Elétricos.Multimídia'),
-(6, 'A3', 2016, 2015, 82900, 'sedan', 'audiA3-2016.jpg', 1, 3, 1, 'Airbag.Alarme.Ar quente.Computador de bordo.Ar-Condicionado.Feio ABS.Vidros elétricos.Direção Hidráulica'),
-(7, '320i', 2020, 2019, 224.9, 'sedan', 'bmw320i-2020.jpg', 2, 1, 1, 'Airbag.\r\nAlarme.\r\nAr quente.\r\nBanco com regulagem de altura.\r\nComputador de bordo.\r\nControle de tração.\r\nDesembaçador traseiro.\r\nAr condicionado.\r\nFreio ABS.\r\nControle automático de velocidade.\r\nRetrovisores elétricos.\r\nRodas de liga leve.\r\nSensor de chuva.\r\nSensor de estacionamento.\r\nTravas elétricas.\r\nVidros elétricos.\r\nVolante com regulagem de altura.\r\nBancos em couro.\r\nDireção hidráulica.\r\nGPS.'),
+(6, 'A3', 2016, 2015, 82900, 'sedan', 'audiA3-2016.jpg', 1, 7, 1, 'Airbag.Alarme.Ar quente.Computador de bordo.Ar-Condicionado.Feio ABS.Vidros elétricos.Direção Hidráulica'),
+(7, '320i', 2020, 2019, 224900, 'sedan', 'bmw320i-2020.jpg', 2, 1, 1, 'Airbag.\r\nAlarme.\r\nAr quente.\r\nBanco com regulagem de altura.\r\nComputador de bordo.\r\nControle de tração.\r\nDesembaçador traseiro.\r\nAr condicionado.\r\nFreio ABS.\r\nControle automático de velocidade.\r\nRetrovisores elétricos.\r\nRodas de liga leve.\r\nSensor de chuva.\r\nSensor de estacionamento.\r\nTravas elétricas.\r\nVidros elétricos.\r\nVolante com regulagem de altura.\r\nBancos em couro.\r\nDireção hidráulica.\r\nGPS.'),
 (8, '235i', 2021, 2020, 339900, 'sedan', 'bmw235i.jpg', 2, 4, 1, 'Airbag.\r\nAlarme.\r\nAr quente.\r\nBanco com regulagem de altura.\r\nComputador de bordo.\r\nControle de tração.\r\nDesembaçador traseiro.\r\nAr condicionado.\r\nFreio ABS.\r\nControle automático de velocidade.\r\nRetrovisores elétricos.\r\nRodas de liga leve.\r\nSensor de chuva.\r\nSensor de estacionamento.\r\nTravas elétricas.\r\nVidros elétricos.\r\nVolante com regulagem de altura.\r\nBancos em couro.\r\nDireção hidráulica.\r\nGPS.'),
 (9, 'Celta', 2015, 2015, 27900, 'hatch', 'Chevcelta-2015.jpg', 19, 3, 1, 'Airbag.\r\nDesembaçador traseiro.\r\nAr condicionado.\r\nTravas elétricas.\r\nVidros elétricos.\r\nDireção hidráulica'),
 (10, 'Cruze', 2018, 2017, 91900, 'sedan', 'chevCruze-2018.jpg', 19, 1, 1, 'Airbag.\r\nAlarme.\r\nBanco com regulagem de altura.\r\nComputador de bordo.\r\nControle de tração.\r\nDesembaçador traseiro.\r\nAr condicionado.\r\nFreio ABS.\r\nRetrovisores elétricos.\r\nRodas de liga leve.\r\nSensor de estacionamento.\r\nRetrovisor fotocrômico.\r\nTravas elétricas.\r\nVidros elétricos.\r\nVolante com regulagem de altura.\r\nBancos em couro'),
@@ -166,7 +171,8 @@ INSERT INTO `veiculo` (`id`, `modelo`, `anomodelo`, `anofabricacao`, `valor`, `t
 (37, 'Amarok', 2020, 2019, 219900, 'picape', 'volksAmarol-2019.jpg', 18, 1, 1, 'Airbag.\r\nAlarme.\r\nAr quente.\r\nBanco com regulagem de altura.\r\nComputador de bordo.\r\nControle de tração.\r\nDesembaçador traseiro.\r\nAr condicionado.\r\nEncosto de cabeça traseiro.\r\nFreio ABS.\r\nControle automático de velocidade.\r\nRetrovisores elétricos.\r\nRodas de liga leve.\r\nSensor de estacionamento.\r\nRetrovisor fotocrômico.\r\nTravas elétricas.\r\nVidros elétricos.\r\nVolante com regulagem de altura.\r\nCapota marítima.\r\nBancos em couro.\r\nTração 4x4.'),
 (38, 'Golf', 2016, 2015, 65900, 'hatch', 'volksGolf-2016.jpg', 18, 3, 1, 'Airbag.\r\nAr quente.\r\nBanco com regulagem de altura.\r\nComputador de bordo.\r\nDesembaçador traseiro.\r\nAr condicionado.\r\nLimpador traseiro.\r\nRádio.\r\nRetrovisores elétricos.\r\nRodas de liga leve.\r\nSensor de estacionamento.\r\nTravas elétricas.\r\nDireção hidráulica'),
 (39, 'Gol', 2021, 2020, 77900, 'hatch', 'volksGol-2022.jpg', 18, 1, 1, 'Airbag.\r\nBanco com regulagem de altura.\r\nComputador de bordo.\r\nEncosto de cabeça traseiro.\r\nFreio ABS\r\nRodas de liga leve\r\nVolante com regulagem de altura'),
-(40, 'Fox', 2012, 2011, 31900, 'hatch', 'volksFox-2014.jpg', 18, 2, 1, 'Airbag.\r\nAlarme.\r\nAr quente.\r\nCD Player.\r\nDesembaçador traseiro.\r\nAr condicionado.\r\nEncosto de cabeça traseiro.\r\nFreio ABS.\r\nLimpador traseiro.\r\nTravas elétricas.\r\nVidros elétricos.\r\nVolante com regulagem de altura.\r\nDireção hidráulica');
+(40, 'Fox', 2012, 2011, 31900, 'hatch', 'volksFox-2014.jpg', 18, 1, 1, 'Airbag.\r\nAlarme.\r\nAr quente.\r\nCD Player.\r\nDesembaçador traseiro.\r\nAr condicionado.\r\nEncosto de cabeça traseiro.\r\nFreio ABS.\r\nLimpador traseiro.\r\nTravas elétricas.\r\nVidros elétricos.\r\nVolante com regulagem de altura.\r\nDireção hidráulica'),
+(79, 'Golf', 2020, 2019, 199990, 'hatch', 'golf2019.jpg', 18, 1, 1, 'Completo');
 
 --
 -- Índices para tabelas despejadas
@@ -207,25 +213,25 @@ ALTER TABLE `veiculo`
 -- AUTO_INCREMENT de tabela `cor`
 --
 ALTER TABLE `cor`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `marca`
 --
 ALTER TABLE `marca`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `veiculo`
 --
 ALTER TABLE `veiculo`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- Restrições para despejos de tabelas

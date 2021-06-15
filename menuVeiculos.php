@@ -53,8 +53,8 @@
 								<?php
 								$sql = "SELECT m.nome marca, count(m.id) veiculos, m.id 
 								from veiculo v 
-								inner join marca m on (m.id = v.marca_id) 
-								group by m.id ";
+								inner join marca m on (m.id = v.marca_id) where m.status = 1  
+								group by m.id";
 								//pdo -> prepare
 								$consulta = $pdo->prepare($sql);
 								//executar o comando sql
@@ -78,8 +78,9 @@
 							<ul class="list-unstyled">
 								<?php
 								$sql = "SELECT c.nome cor, count(c.id) veiculos, c.id 
-								from veiculo v inner join cor c on (c.id = v.cor_id)  
-								group by c.id";
+								from veiculo v inner join cor c on (c.id = v.cor_id)
+								where c.status = 1
+								group by c.id ";
 								//pdo -> prepare
 								$consulta = $pdo->prepare($sql);
 								//executar o comando sql

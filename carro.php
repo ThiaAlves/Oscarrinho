@@ -102,6 +102,7 @@ $dados = $consulta->fetch(PDO::FETCH_OBJ);
 		<!-- Pager -->
 		<hr>
 		<!-- .row end -->
+		<h2 class="text-center">Outros veículos</h2>
 		<div class="row ">
 			<?php
 			$sql = "SELECT c.nome cor, m.nome marca, v.id, v.modelo, v.anomodelo, v.anofabricacao, v.valor, v.fotodestaque 

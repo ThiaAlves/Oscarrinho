@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.unialfa.model.Cor;
 import com.unialfa.model.Marca;
 import com.unialfa.repository.MarcaRepository;
 
@@ -54,10 +55,28 @@ public class MarcaController {
 		return "marca/formulario";
 	}
 	
-	@GetMapping(value = "excluir")
-	public String excluir(@PathParam(value = "id") Long id) {
-		repo.deleteById(id);
-		return "redirect:../lista";
+	@GetMapping(value = "inativar")
+	public String inativar(@PathParam(value = "id") Long id, Model model, boolean status) {
+		Marca m = repo.getOne(id);
+		m.setStatus(false);
+		repo.save(m);
+		return "redirect:../lista";	
 	}
+	
+	
+	@GetMapping(value = "ativar")
+	public String ativar(@PathParam(value = "id") Long id, Model model, boolean status) {
+		Marca m = repo.getOne(id);
+		m.setStatus(true);
+		repo.save(m);
+		return "redirect:../lista";	
+	}
+	
+	
+//	@GetMapping(value = "excluir")
+//	public String excluir(@PathParam(value = "id") Long id) {
+//		repo.deleteById(id);
+//		return "redirect:../lista";
+//	}
 	
 }
